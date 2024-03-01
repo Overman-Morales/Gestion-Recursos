@@ -1,0 +1,50 @@
+<app-navv></app-navv>
+
+<app-barra-alumno></app-barra-alumno>
+
+
+<div class="container mt-3">
+    <h2 class="mb-4 col-title">Documentos Mensuales</h2>
+
+    <!-- Add Document Form -->
+    <div class="mb-4">
+      <label for="fileInput" class="form-label">Subir Archivo</label>
+      <input type="file" id="fileInput" class="form-control" (change)="onFileSelected($event)" />
+
+      <div class="row mt-3">
+        <div class="col-md-6 mb-3">
+          <label for="nameInput" class="form-label">Nombre</label>
+          <input type="text" id="nameInput" class="form-control" placeholder="Enter Name" [(ngModel)]="newName" />
+        </div>
+
+
+
+        <div class="col-md-6 mb-3">
+          <label for="statusInput" class="form-label">Status</label>
+          <input type="text" id="statusInput" class="form-control" placeholder="Enter Status" [(ngModel)]="newStatus" />
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="typeInput" class="form-label">Servicio</label>
+        <select id="typeInput" class="form-select" [(ngModel)]="newDocumentType">
+          <option value="Asistencia">Asistencia</option>
+          <option value="Actividades">Actividades</option>
+        </select>
+      </div>
+
+
+      <button class="btn btn-primary border-0" (click)="addDocument()">Subir</button>
+    </div>
+
+    <!-- src/app/document/document.component.html -->
+
+  <ul class="list-group">
+    <li *ngFor="let document of documents" class="list-group-item">
+      {{ document.name }} ({{ document.documentType }}) - {{ document.status }}
+      <a routerLink="/documents/{{ document.id }}" class="btn btn-primary btn-sm float-end mx-1 border-0">Detalles</a>
+      <button class="btn btn-warning btn-sm float-end mx-1 border-0" (click)="deleteDocument(document.id)">Eliminar</button>
+    </li>
+  </ul>
+
+

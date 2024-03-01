@@ -1,0 +1,122 @@
+<app-navv></app-navv>
+
+<!-- Modal -->
+
+<form>
+    <div class="container-md mt-5">
+        <h1 class="text-center mt-5 col-title">{{datosFTD.id ? 'Edición': 'Registro'}} de Datos FTD</h1>
+    <div class="row" (ngSubmit) = cargar()>
+        <div class="col-md-4 mt-4">
+            <label class="form-label">Nombre del Proyecto</label>
+            <input type="text" class="form-control" placeholder="Escribe el nombre del Proyecto" id="nombreProyecto" name="nombreProyecto" [(ngModel)]="datosFTD.nombreProyecto">
+        </div>
+
+        <div class="col-md-4 mt-4">
+          <label class="form-label">Username</label>
+          <input type="text" class="form-control" placeholder="Ingresa tu usuario" id="username" name="username" [(ngModel)]="usuario.username" required>
+      </div>
+
+      <div class="col-md-4 mt-4">
+          <label class="form-label">Password</label>
+          <input  class="form-control" placeholder="Ingresa la Contrasena" id="password"  [(ngModel)]="usuario.password" required>
+      </div>
+
+        <div class="col-md-3 position-relative mt-4">
+            <label for="avanceProyecto" class="form-label">Avance Proyecto</label>
+            <select class="form-select" id="avanceProyecto" name="avanceProyecto" [(ngModel)]="datosFTD.avanceProyecto">
+                <option selected disabled value="">Elige una de las opciones</option>
+                <option value="En Progreso">En Progreso</option>
+                <option value="Finalizado">Finalizado</option>
+            </select>
+        </div>
+        <div class="col-md-5 mt-4">
+            <label class="form-label">Evaluación del Proyecto</label>
+            <input type="text" class="form-control" placeholder="Liga de la evaluacion del Proyecto" id="evaluacionProyecto" name="evaluacionProyecto" [(ngModel)]="datosFTD.evaluacionProyecto">
+        </div>
+        <div class="col-md-3 position-relative mt-4">
+            <label for="areaInfotec" class="form-label">Área de INFOTEC</label>
+            <select class="form-select" id="areaInfotec" name="areaInfotec" [(ngModel)]="datosFTD.areaInfotec">
+                <option selected disabled value="">Elige una de las opciones</option>
+                <option value="DAAP">DAAP</option>
+            </select>
+        </div>
+        <div class="col-md-5 mt-4">
+            <label class="form-label">Tutor</label>
+            <div>
+                <select [compareWith]="compararTutorial" class="form-select" id="tutor" name="tutor" [(ngModel)]="datosFTD.tutor"  #tutores="ngModel" required>
+                    <option *ngFor="let tutor of tutor" [ngValue]="tutor">{{tutor.nombre}}</option>
+                </select>
+                <div *ngIf="tutores.invalid && (tutores.dirty || tutores.touched)" class="alert alert-danger">El Tutor es Requerido</div>
+            </div>
+        </div>
+        <div class="col-md-4 position-relative mt-4">
+            <label for="beca" class="form-label">Beca</label>
+            <select [compareWith]="compararBeca" class="form-select" id="beca" name="beca" [(ngModel)]="datosFTD.beca" #becas="ngModel" required="">
+                <option *ngFor="let beca of beca" [ngValue]="beca">{{beca.nombre}}</option>
+            </select>
+            <div *ngIf="becas.invalid && (becas.dirty || becas.touched)" class="alert alert-danger">El Trámite es Requerido</div>
+        </div>
+
+        <div class="col-md-3 mt-4">
+          <label class="form-label">Fecha de Ingreso</label>
+          <input type="date" class="form-control" placeholder="Fecha de Ingreso" id="fechaIngreso" name="fechaIngreso" [(ngModel)]="datosFTD.fechaIngreso" (change)="generarMatricula()">
+          <!-- Mensaje de error -->
+          <div *ngIf="fechaInvalida" class="alert alert-danger">La fecha de ingreso debe ser menor que la fecha de término.</div>
+      </div>
+      <div class="col-md-3 mt-4">
+          <label class="form-label">Fecha de Término</label>
+          <input type="date" class="form-control" placeholder="Fecha de Término" id="fechaTermino" name="fechaTermino" [(ngModel)]="datosFTD.fechaTermino">
+      </div>
+
+
+
+
+
+
+        <div class="col-md-2 mt-4">
+            <label class="form-label">Grupo</label>
+            <div>
+                <select [compareWith]="compararGrupo" class="form-select" id="grupo" name="grupo"  [(ngModel)]="datosFTD.grupo" #grupos="ngModel" required="">
+                    <option *ngFor="let grupo of group" [ngValue]="grupo">{{grupo.nombre}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-4 position-relative mt-4">
+            <label for="enlace" class="form-label">Enlace</label>
+            <select class="form-select" id="enlace" name="enlace" [(ngModel)]="datosFTD.enlace">
+                <option selected disabled value="">Elige una de las opciones</option>
+                <option value="FTD">FTD</option>
+                <option value="Dirección">Dirección</option>
+                <option value="RH">RH</option>
+            </select>
+        </div>
+        <div class="col-md-3 mt-4">
+            <label class="form-label">Matricula FTD</label>
+            <input type="text" class="form-control" placeholder="Matricula FTD" id="matriculaFTD" name="matriculaFTD" [(ngModel)]="datosFTD.matriculaFTD">
+        </div>
+
+        <div class="col-md-3 position-relative mt-4">
+            <label for="estatusTramite" class="form-label">Estatus del Trámite</label>
+            <select class="form-select" id="estatusTramite" name="estatusTramite" [(ngModel)]="datosFTD.estatusTramite">
+                <option selected disabled value="">Elige una de las opciones</option>
+                <option value="Progreso">Progreso</option>
+                <option value="Finalizado">Finalizado</option>
+            </select>
+        </div>
+        <div class="col-md-2 position-relative mt-4">
+            <label for="cursos" class="form-label">Cursos</label>
+            <select [compareWith]="compararCurso" class="form-select" id="cursos" name="cursos" [(ngModel)]="datosFTD.cursos" #course="ngModel" required="">
+                <option *ngFor="let curso of curso" [ngValue]="curso">{{curso.nombre}}</option>
+            </select>
+        </div>
+
+        <!-- boton -->
+        <button type="button" class="btn btn-secondary border-0 mt-4" role="button" (click)="registro()" (click)="crear()" *ngIf="!datosFTD.id else elseBlock">Registrar</button>
+
+        <ng-template #elseBlock>
+          <button type="button" class="btn btn-secondary border-0 mt-4" role="button" (click)="guardarDatosFTD()">Actualizar</button>
+      </ng-template>
+
+
+    </div>
+    </div>

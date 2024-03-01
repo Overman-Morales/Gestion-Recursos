@@ -1,0 +1,82 @@
+/* Estilos para los botones principales */
+.btn-primary {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.btn-primary:hover {
+  background-color: #45a049;
+  color: white;
+}
+
+/* Estilos para los botones secundarios en el dropdown */
+.dropdown-menu .dropdown-item {
+  color: #333;
+  transition: all 0.3s ease;
+}
+
+.dropdown-menu .dropdown-item:hover, .dropdown-menu .dropdown-item:focus {
+  background-color: #f2f2f2;
+  color: #007bff;
+}
+
+/* Estilos para el divider */
+.dropdown-divider {
+  border-top: 1px solid #ddd;
+}
+
+/* Estilos para el botón de revisión */
+.btn-revision {
+  background-color: #007bff;
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.btn-revision:hover {
+  background-color: #0056b3;
+  color: white;
+}
+
+/* Estilos para el botón de "Dados de Baja" */
+.dropdown-toggle.baja-toggle {
+  background-color: #dc3545;
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.dropdown-toggle.baja-toggle:hover {
+  background-color: #c82333;
+}
+
+/* Estilos para separar los grupos de botones */
+.btn-group {
+  margin-bottom: 40px; /* Ajusta este valor para controlar la separación */
+}

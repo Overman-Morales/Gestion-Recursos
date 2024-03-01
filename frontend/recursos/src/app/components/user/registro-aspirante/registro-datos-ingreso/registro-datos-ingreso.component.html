@@ -1,0 +1,76 @@
+<app-navv></app-navv>
+
+<div class="container py-5" style="margin-top: 15px;">
+  <div class="row">
+    <div class="col-md-12">
+      <!-- Botón de regreso -->
+      <button class="btn btn-outline-secondary float-end mt-3" (click)="regresarDatosEscolares()">Regresar</button>
+    </div>
+
+<!-- Modal -->
+
+<form #miFormulario="ngForm" (ngSubmit)="create()" novalidate>
+    <div class="container-md mt-5">
+        <h1 class="text-center mt-5 col-title">{{ingreso.id ? 'Edición': 'Registro'}} de Datos de Ingreso</h1>
+    <div class="row" (ngSubmit) = cargar()>
+        <div class="col-md-3 position-relative mt-4">
+            <label for="tramite" class="form-label">Trámite</label>
+            <div>
+                <select [compareWith]="compararTramite" class="form-select" id="tramite" name="tramite" [(ngModel)]="ingreso.tramite"  #tramites="ngModel" required>
+                    <option *ngFor="let tramite of tramite" [ngValue]="tramite">{{tramite.nombreTramite}}</option>
+                </select>
+                <div *ngIf="tramites.invalid && (tramites.dirty || tramites.touched)" class="alert alert-danger">El Trámite es Requerido</div>
+            </div>
+        </div>
+        <div class="col-md-3 position-relative mt-4">
+            <label for="perfilamiento" class="form-label">Perilamiento</label>
+            <div>
+                <select [compareWith]="compararPerfilamiento" class="form-select" id="perfilamiento" name="perfilamientoq" [(ngModel)]="ingreso.perfilamiento" #perfilamient="ngModel" required="">
+                    <option *ngFor="let perfilamiento of perfilamiento" [ngValue]="perfilamiento">{{perfilamiento.nombrePerfilamiento}}</option>
+                </select>
+                <div *ngIf="perfilamient.invalid && (perfilamient.dirty || perfilamient.touched)" class="alert alert-danger">El Perfilamiento es Requerido</div>
+            </div>
+        </div>
+        <div class="col-md-3 position-relative mt-4">
+            <label for="turno" class="form-label">Turno</label>
+            <select class="form-select" id="turno" name="turno" [(ngModel)]="ingreso.turno" #turn="ngModel" required>
+                    <option value="Matutino">Matutino</option>
+                    <option value="Vespertino">Vespertino</option>
+            </select>
+            <div *ngIf="turn.invalid && (turn.dirty || turn.touched)" class="alert alert-danger">El Turno es Requerido</div>
+        </div>
+        <div class="col-md-3 position-relative mt-4">
+            <label for="horario" class="form-label">Horario</label>
+            <select class="form-select" id="horario" name="horario" [(ngModel)]="ingreso.horario" #hora="ngModel" required>
+                    <option value="9:00-14:00">9:00-14:00</option>
+                    <option value="14:00-19:00">14:00-19:00a</option>
+            </select>
+            <div *ngIf="hora.invalid && (hora.dirty || hora.touched)" class="alert alert-danger">El Horario es Requerido</div>
+        </div>
+        <div class="col-md-3 position-relative mt-4">
+            <label for="modalidad" class="form-label">Modalidad</label>
+            <div>
+                <select [compareWith]="compararModalidad" class="form-select" id="modalidad" name="modalidad" [(ngModel)]="ingreso.modalidad" #mod="ngModel" required="">
+                    <option *ngFor="let modalidad of modalidad" [ngValue]="modalidad">{{modalidad.nombre}}</option>
+                </select>
+                <div *ngIf="mod.invalid && (mod.dirty || mod.touched)" class="alert alert-danger">La Modalidad es Requerida</div>
+            </div>
+        </div>
+        <div class="col-md-4 position-relative mt-4">
+            <label form="cv" class="form-label">Curriculum Vitae (CV)</label>
+            <input type="text" class="form-control" placeholder="Escribe el link de tu cv" id="cv" name="cv" [(ngModel)]="ingreso.cv" #curri="ngModel" required="">
+            <div *ngIf="curri.invalid && (curri.dirty || curri.touched)" class="alert alert-danger">El Curriculum Vitae es Requerido</div>
+        </div>
+        <div class="col-md-4 position-relative mt-4">
+            <label form="historialAcademico" class="form-label">Historial Académico</label>
+            <input type="text" class="form-control" placeholder="Escribe el link de tu historial Academico" id="historiaAcademico" name="historial  Academico" [(ngModel)]="ingreso.historialAcademico" #historial="ngModel" required="">
+            <div *ngIf="historial.invalid && (historial.dirty || historial.touched)" class="alert alert-danger">El Historial Académico es Requerido</div>
+        </div>
+
+        <!-- boton -->
+        <button type="button" class="btn btn-secondary border-0 mt-4" role="button" (click)='crear()' *ngIf="!ingreso.id else elseBlock" [disabled]="miFormulario.invalid">Siguiente</button>
+        <ng-template #elseBlock>
+            <button type="button" class="btn btn-secondary border-0 mt-4" role="button" (click)="update()" [disabled]="miFormulario.invalid">Actualizar</button>
+        </ng-template>
+    </div>
+    </div>

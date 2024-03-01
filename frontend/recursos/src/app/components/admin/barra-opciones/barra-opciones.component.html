@@ -1,0 +1,62 @@
+<div class="mt-4">
+    <!-- Barra de Opciones -->
+    <div class="btn-group w-100 mt-5" role="group" aria-label="Basic example">
+        <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle border-0" type="button" data-bs-toggle="dropdown" aria-expanded="true">
+                Gestionar Datos
+            </button>
+            <ul class="dropdown-menu btn-light">
+                <li><a class="dropdown-item" (click)="datos_escolares()">Escolares</a></li>
+                <li><a class="dropdown-item" (click)="datos_ingreso()">Ingreso</a></li>
+                <li><a class="dropdown-item" (click)="datos_ftd()">FTD</a></li>
+                <li><a class="dropdown-item" (click)="datos_personales()">Personales</a></li>
+            </ul>
+        </div>
+        <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle border-0" type="button" data-bs-toggle="dropdown" aria-expanded="true">
+                Datos Auxiliares
+            </button>
+            <ul class="dropdown-menu btn-light">
+                <li><a class="dropdown-item" (click)="universidad()">Universidad</a></li>
+                <li><a class="dropdown-item" (click)="modalidadEscolar()">Modalidad Escolar</a></li>
+                <li><a class="dropdown-item" (click)="plan_educativo()">Plan Educativo</a></li>
+                <li><a class="dropdown-item" (click)="periodo()">Periodo</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" (click)="perfilamiento()">Perfilamiento</a></li>
+                <li><a class="dropdown-item" (click)="tramite()">Trámite</a></li>
+                <li><a class="dropdown-item" (click)="modalidad()">Modalidad</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" (click)="beca()">Beca</a></li>
+                <li><a class="dropdown-item" (click)="grupo()">Grupo</a></li>
+                <li><a class="dropdown-item" (click)="tutor()">Tutor</a></li>
+                <li><a class="dropdown-item" (click)="curso()">Curso</a></li>
+            </ul>
+        </div>
+        <!-- <button type="button" class="btn btn-primary border-0">Documentos Mensuales</button> -->
+        <button  type="button" class="btn btn-primary border-0" (click)="revision()"></button>
+        <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle border-0" type="button" data-bs-toggle="dropdown" aria-expanded="true">
+                    Dados de Baja
+                </button>
+                <ul class="dropdown-menu btn-light">
+                    <li><a class="dropdown-item" (click)="dados_baja_escolares()">Escolares</a></li>
+                    <li><a class="dropdown-item" (click)="dados_baja_ingreso()">Ingreso</a></li>
+                    <li><a class="dropdown-item" (click)="datos_baja_ftd()">FTD</a></li>
+                    <li><a class="dropdown-item" (click)="dados_baja()">Personales</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" (click)="baja_universidad()">Universidad</a></li>
+                    <li><a class="dropdown-item" (click)="baja_modalidad_escolar()">Modalidad Escolar</a></li>
+                    <li><a class="dropdown-item" (click)="baja_plan_educativo()">Plan Educativo</a></li>
+                    <li><a class="dropdown-item" (click)="baja_periodo()">Periodo</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" (click)="baja_perfilamiento()">Perfilamiento</a></li>
+                    <li><a class="dropdown-item" (click)="baja_tramite()">Trámite</a></li>
+                    <li><a class="dropdown-item" (click)="baja_modalidad()">Modalidad</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" (click)="baja_beca()">Beca</a></li>
+                    <li><a class="dropdown-item" (click)="baja_grupo()">Grupo</a></li>
+                    <li><a class="dropdown-item" (click)="baja_tutor()">Tutor</a></li>
+                    <li><a class="dropdown-item" (click)="baja_curso()">Curso</a></li>
+                </ul>
+        </div>
+</div>

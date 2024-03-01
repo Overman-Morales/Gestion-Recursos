@@ -1,0 +1,73 @@
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+/* Estilos para la barra de navegación */
+app-navv {
+  /* Agrega estilos según sea necesario */
+}
+
+/* Estilos para la sección principal */
+.fontTitle {
+  padding: 60px 0;
+}
+
+.container-lg {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Estilos para el formulario de inicio de sesión */
+.loggin {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.loggin h1 {
+  font-size: 3em;
+  color: #ff6b81;
+  text-align: center;
+}
+
+.loggin form {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.loggin label {
+  font-weight: bold;
+  color: #57606f;
+}
+
+.loggin .form-control {
+  border: 2px solid #ff6b81;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 20px;
+  color: #333;
+  background-color: #f8f9fa;
+}
+
+.loggin .btn-primary {
+  background-color: #ff6b81;
+  color: #fff;
+  border: none;
+  padding: 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.loggin .btn-primary:hover {
+  background-color: #d63031;
+}
+
+.loggin .form-text {
+  color: #57606f;
+}
