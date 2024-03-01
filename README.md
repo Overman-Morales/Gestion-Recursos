@@ -8,7 +8,7 @@ Este proyecto se centra en el desarrollo de una aplicación web para la gestión
 - **Spring Boot (Java)**: Framework de desarrollo de aplicaciones Java para la creación de servicios web.
 - **PostgreSQL**: Sistema de gestión de bases de datos relacional de código abierto.
 - **Bootstrap**: Framework front-end para diseño web responsivo y fácil de usar.
-- - **Otras Tecnologias**: Html, Css, GitHUb.
+- **Otras Tecnologias**: Html5, Css3, GitHub.
 
 
 ## Realizado por:
